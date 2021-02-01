@@ -1,5 +1,5 @@
 # **Đếm xe**
-Project sử dụng kiến trúc mạng [FairMOT](https://github.com/ifzhang/FairMOT) cho bài toán nhận diện xe cộ dựa trên dữ liệu video từ các camera giám sát, kết hợp với thuật toán xác định hướng di chuyển của từng vật thể. 
+Project sử dụng kiến trúc mạng [FairMOT](https://github.com/ifzhang/FairMOT) với backbone HRNetv2 cho bài toán nhận diện xe cộ dựa trên dữ liệu video từ các camera giám sát, kết hợp với thuật toán xác định hướng di chuyển của từng vật thể. 
 
 
 ## 1. Yêu cầu
@@ -72,8 +72,6 @@ data/
    └── labels_with_ids
        └── train
 ```
-
-
 * Bước 2: Sinh nhãn tương ứng cho từng video với định dạng sau (mỗi giá trị là 1 cột):
 ```
 Frame                Frame mà dữ liệu này biểu diễn. 
@@ -108,6 +106,12 @@ models/
 └── hrnetv2_w32_imagenet_pretrained.pth
 ```
 Link download: https://drive.google.com/drive/folders/1XFW5PQz2NevRo7jQCBlgmbN8YhRvNRTN?usp=sharing
+trong đó
+```
+day_hrnet.pth       Training trên những video ban ngày (6:00am to 17:59pm)
+night_hrnet.pth     Training trên những video buổi tối (18:00pm to 5:59am)
+mix_hrnet.pth       Training trên những video trên cả 2 khung giờ
+```
 
 * Bước 2: Tạo file training:
 Sử dụng script `scr/gen_dot_train.py`, thay `label_root=$HOME/data/demxe/labels_with_ids/train`. Kết quả cho ra file `demxe.train` chứa đường dẫn đến các frame tại `$HOME/src/data/`.
