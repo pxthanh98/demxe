@@ -1,0 +1,15 @@
+{
+    "root":"/data/FairMOT/data",
+    "train":
+    {
+        "demxe":"/data/FairMOT/src/data/demxe.train"
+    },    
+    "test_emb":
+    {
+        "demxe":"/data/FairMOT/src/data/demxe.train"
+    },
+    "test":
+    {
+        "demxe":"/data/FairMOT/src/data/demxe.train"
+    }
+}
